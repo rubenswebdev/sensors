@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Client</title>
+</head>
+<body>
+  <p id="campo1"></p>
+  <p id="campo2"></p>
+  <p id="campo3"></p>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    (function() {
+      console.log('Conected');
+      var socket = io();
+      socket.on('dados', function(dados){
+        console.log(dados);
+        document.getElementById('campo1').innerHTML = dados.campo1;
+        document.getElementById('campo2').innerHTML = dados.campo2;
+        document.getElementById('campo3').innerHTML = dados.campo3;
+      });
+    })();
+  </script>
+</body>
+</html>
